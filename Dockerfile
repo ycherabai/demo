@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 openjdk:21-jdk-slim as build
+FROM --platform=linux/amd64 openjdk:21-jdk-slim as build
 
 # Set working directory
 WORKDIR /app
@@ -12,7 +12,7 @@ COPY src /app/src
 RUN ./gradlew bootJar --no-daemon
 
 # Runtime image
-FROM --platform=linux/arm64 openjdk:21-jdk-slim
+FROM --platform=linux/amd64 openjdk:21-jdk-slim
 
 # Set working directory in container
 WORKDIR /app
